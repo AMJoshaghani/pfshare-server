@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}File Manager{% endblock %}
+{% block contents %}
+
+{% for dir in dirs %}
+    <div class="div-file">
+        <a class="file-link" href="{{ url_for("filemanager.file_path", dirpath=dir) if dir != '..' else 'javascript: void(0)' }}"
+           onclick="{{ 'history.back()' if dir == '..' else '' }}">
+            <img class="file-icon" src="{{ url_for("static",  filename=icon("folder")) }}" alt="folder">
+            <span class="file-name">{{ dir.removeprefix(current_dir) }}</span>
+
+            <div class="pop-up">
+                <table>
+                    <tr>
+                        <td>path</td>
+                        <td>{{ dir }}</td>
+                    </tr>
+                    <tr>
+                        <td>folder name</td>
+                        <td>{{ dir.removeprefix(current_dir) }}</td>
+                    </tr>
+                </table>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% for file in files.keys() %}
+    <div class="div-file">
+        <a class="file-link" href="{{ url_for("api.download_file", filename=file) }}">
+            <img class="file-icon" src="{{ url_for("static",  filename=icon(files[file]["extension"])) }}" alt="folder">
+            <span class="file-name">{{ files[file]["name"] }}</span>
+
+            <div class="pop-up">
+                <table>
+                    {% for inf in files[file]["info"].keys() %}
+                        <tr>
+                            <td>{{ inf }}</td>
+                            <td>{{ files[file]["info"][inf] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+<script>
+    $(".div-file", true).forEach(function (element, index) {
+        element.addEventListener("mouseover", function () {
+            showPopUp(element)
+        }, false);
+        element.addEventListener("mouseout", function () {
+            hidePopUp(element)
+        }, false);
+    });
+</script>
+{% endblock %}

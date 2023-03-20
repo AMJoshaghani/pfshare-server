@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Share Area{% endblock %}
+{% block contents %}
+
+    <div class="share-area">
+        <div class="drag area">
+            <div class="drag-zone" onclick="$('#file-input').click()">
+                <span>
+                    Drop or click to select files...
+                </span>
+                <input id="file-input" type="file" name="name" accept="multipart/form-data" style="display: none"/>
+            </div>
+        </div>
+        <div class="files area">
+            <div class="files-list">
+                <table class="files-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            File name
+                        </th>
+                        <th>
+                            File Size
+                        </th>
+                        <th>
+                            Process Progress / Link
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                            <tr>
+                                <td>
+                                    {{ file[0] }}
+                                </td>
+                                <td>
+                                    {{ s(file[1]) }}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for("api.download_file", filename=file[1]) }}">download</a>
+                                </td>
+                            </tr>
+                        {% endfor  %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function make_table_row(fname, fsize, fpid) {
+            let row = document.createElement("TR");
+            ///
+            let col_name = document.createElement("TD");
+            let col_size = document.createElement("TD");
+            let col_progress = document.createElement("TD");
+            ///
+            let col_name_text = document.createTextNode(fname);
+            col_name.appendChild(col_name_text)
+
+            let col_size_text = document.createTextNode(fsize);
+            col_size.appendChild(col_size_text);
+
+            let col_progress_div = document.createElement("DIV");
+                /* -> */ col_progress_div.classList.add("progress-div");
+                let col_progress_bar = document.createElement("DIV");
+                    /* --> */ col_progress_bar.classList.add("progress-bar");
+                    /* --> */ col_progress_bar.id = "progress_" + fpid;
+                    let col_progress_bar_text = document.createTextNode("0%");
+
+            col_progress_bar.appendChild(col_progress_bar_text);
+            col_progress_div.appendChild(col_progress_bar);
+            col_progress.appendChild(col_progress_div);
+
+            row.appendChild(col_name);
+            row.appendChild(col_size);
+            row.appendChild(col_progress);
+
+            $(".files-table > tbody").appendChild(row);
+        }
+
+        function upload_file(file, progress_name) {
+            let xhr = new XMLHttpRequest();
+            let pb = $("#progress_" + progress_name);
+            xhr.open("POST", '{{ url_for("api.upload_file") }}', true);
+            addListeners(xhr, function (e) {
+                console.log(e);
+                if (e.lengthComputable) {
+                    let percentComplete = (e.loaded / e.total) * 100;
+                    console.log(percentComplete);
+                    pb.style.width = percentComplete + '%';
+                    pb.innerText = percentComplete + '%';
+                }
+            });
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(this.responseText);
+                    if (data.success !== 1) {
+                        pb.classList.remove("success");
+                        pb.classList.add("fail");
+                        alert("Image Uploading failed. Try again..")
+                    } else {
+                        pb.classList.add("success");
+                    }
+                }
+            };
+            xhr.send(file);
+        }
+
+        $("#file-input").addEventListener("change", function () {
+            const files = this.files;
+            if (files.length) {
+                let file = files[0];
+                let count = $(".files-table > tbody").childElementCount;
+                let formData = new FormData();
+                formData.append('file', file);
+                make_table_row(file.name, file.size, count.toString())
+                upload_file(formData, count.toString());
+            }
+        }, false);
+    </script>
+{% endblock %}

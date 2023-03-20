@@ -1,0 +1,13 @@
+@media only screen and (max-width: 600px) {
+    .file-icon {
+        width: 30px;
+    }
+
+    .file-name {
+        font-size: 7px !important;
+    }
+
+    .pop-up {
+        font-size: 7px;
+    }
+}

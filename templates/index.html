@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}File sharing platform{% endblock %}
+{% block args %}style="background: #40ff32;"{% endblock %}
+{% block contents %}
+<div class="base">
+    <h1>
+        WELCOME TO PYTHON FILE SHARE!
+    </h1>
+    <div class="select-option">
+            <a class="select-type" href="/filemanager/">
+        <div class="option">
+            <img src="{{ url_for('static', filename='img/folder.png') }}" alt="folder"/>
+            <span>File Manager</span>
+        </div>
+    </a>
+    <a class="select-type" href="/sharearea/">
+        <div class="option">
+            <img src="{{ url_for('static', filename='img/cloud.png') }}" alt="cloud"/>
+            <span>Share Area</span>
+        </div>
+    </a>
+    </div>
+</div>
+{% endblock %}

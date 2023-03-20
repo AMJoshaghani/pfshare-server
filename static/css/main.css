@@ -1,0 +1,11 @@
+@font-face {
+    font-face-name: 'larabie';
+    src: url("/static/css/larabie.otf");
+}
+@font-face {
+    font-face-name: 'nimbus';
+    src: url("/static/css/nimbus.otf");
+}
+* {
+    font-family: 'nimbus', serif;
+}

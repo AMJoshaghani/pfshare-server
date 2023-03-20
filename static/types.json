@@ -1,0 +1,159 @@
+{
+  "folder": "types/folder.png",
+  "undef": "types/undefined.png",
+  "types/code.png": [
+    ".html",
+    ".css",
+    ".js",
+    ".xml"
+  ],
+  "types/contact.png": [
+    ".csv",
+    ".vcf"
+  ],
+  "types/database.png": [
+    ".db",
+    ".sqlite",
+    ".sqlite3"
+  ],
+  "types/disk.png": [
+    ".iso"
+  ],
+  "types/excel.png": [
+    ".xlsx",
+    ".xlsm",
+    ".xlsb",
+    ".xltx",
+    ".xltm",
+    ".xls",
+    ".xlt",
+    ".xlam",
+    ".xla",
+    ".xlw",
+    ".xlr"
+  ],
+  "types/executable.png": [
+    ".exe",
+    ".msi",
+    ".appimage",
+    ".deb",
+    ".rpm",
+    ".dmg"
+  ],
+  "types/illustrator.png": [
+    ".ai",
+    ".ait"
+  ],
+  "types/indesign.png": [
+    ".indd"
+  ],
+  "types/link.png": [
+    ".url",
+    ".link",
+    ".sym"
+  ],
+  "types/monitor.png": [
+    ".log"
+  ],
+  "types/movie.png": [
+    ".aaf",
+    ".3gp",
+    ".dat",
+    ".flv",
+    ".mkv",
+    ".mp4",
+    ".mpeg",
+    ".mpg",
+    ".mpe",
+    ".wmv",
+    ".webm"
+  ],
+  "types/music.png": [
+    ".aiff",
+    ".aif",
+    ".aifc",
+    ".wav",
+    ".flac",
+    ".la",
+    ".wv",
+    ".wma",
+    ".mp3",
+    ".aac",
+    ".ogg"
+  ],
+  "types/pdf.png": [
+    ".pdf",
+    ".epub"
+  ],
+  "types/photo.png": [
+    ".tif",
+    ".tiff",
+    ".bmp",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".png",
+    ".eps"
+  ],
+  "types/photoshop.png": [
+    ".psd",
+    ".psb"
+  ],
+  "types/powerpoint.png": [
+    ".pptx",
+    ".pptm",
+    ".ppt",
+    ".xps",
+    ".potx",
+    ".potm",
+    ".pot",
+    ".thmx",
+    ".ppsx",
+    ".ppsm",
+    ".pps",
+    ".ppam",
+    ".ppa",
+    ".odp"
+  ],
+  "types/premiere.png": [
+    ".prel",
+    ".prproj"
+  ],
+  "types/terminal.png": [
+    ".sh",
+    ".fish",
+    ".zsh",
+    ".bash",
+    ".com",
+    ".exe",
+    ".bat",
+    ".cmd",
+    ".vbs",
+    ".vbe",
+    ".js",
+    ".jse",
+    ".wsf",
+    ".wsh",
+    ".psc1"
+  ],
+  "types/text.png": [
+    ".txt",
+    ".rtf"
+  ],
+  "types/word.png": [
+    ".dotx",
+    ".dotm",
+    ".dot",
+    ".docx",
+    ".docm",
+    ".doc"
+  ],
+  "types/zip.png": [
+    ".zip",
+    ".tar",
+    ".gz",
+    ".rar",
+    ".7z",
+    ".xz"
+  ]
+}
