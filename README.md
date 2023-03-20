@@ -3,12 +3,12 @@
 PFShare is a simple and compatible file-sharing app made based on network which allows users to connect and share with eachother regardless of their OS.
 <br>
 
-![main](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-29-30_7a4u.png)
-![filemanager](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-32-53_3n1l.png)
-![sharearea](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-30-26_c7ag.png)
+![main - linux](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-29-30_7a4u.png)
+![main - windows](https://s2.uupload.ir/files/screenshot_(15)_w842.png)
+
 
 # Usage
-Navigate to releases for downloading the app! (soon).
+Navigate to [releases](https://github.com/AMJoshaghani/pfshare-server/releases) for downloading the app!
 <br>
 # Usage - Developers
 First of all, users need to be connected to a common network. it can be a Hotspot, etc.
@@ -18,6 +18,11 @@ python run.py 0.0.0.0 5000 false
 ```
 then everyone in the network can connect using the address made by program.<br>
 ![address to pfshare](https://s2.uupload.ir/files/screenshot_from_2023-03-20_18-40-48_1pc4.png)
+
+# Screenshots
+
+![sharearea](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-30-26_c7ag.png)
+![filemanager](https://s2.uupload.ir/files/screenshot_from_2023-03-20_19-32-53_3n1l.png)
 
 # Todo
 - adding chat to sharearea
